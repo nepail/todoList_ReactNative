@@ -1,12 +1,14 @@
+import React from "react";
 import { View, Text, Image, TextInput } from "react-native";
+
 import { COLORS, FONTS, SIZES, assets } from "../constants";
 
-const HomeHeader = () => {
+const HomeHeader = ({ onSearch }) => {
   return (
     <View
       style={{
-        padding: SIZES.font,
         backgroundColor: COLORS.primary,
+        padding: SIZES.font,
       }}
     >
       <View
@@ -18,9 +20,10 @@ const HomeHeader = () => {
       >
         <Image
           source={assets.logo}
-          resizeMethod="contain"
+          resizeMode="contain"
           style={{ width: 90, height: 25 }}
         />
+
         <View style={{ width: 45, height: 45 }}>
           <Image
             source={assets.person01}
@@ -40,6 +43,7 @@ const HomeHeader = () => {
           />
         </View>
       </View>
+
       <View style={{ marginVertical: SIZES.font }}>
         <Text
           style={{
@@ -48,8 +52,9 @@ const HomeHeader = () => {
             color: COLORS.white,
           }}
         >
-          Hello, Nepail 🐍🐍🐍
+          Hello Victoria 👋
         </Text>
+
         <Text
           style={{
             fontFamily: FONTS.bold,
@@ -58,7 +63,7 @@ const HomeHeader = () => {
             marginTop: SIZES.base / 2,
           }}
         >
-          Let's find a masterpice
+          Let’s find masterpiece Art
         </Text>
       </View>
 
@@ -69,7 +74,7 @@ const HomeHeader = () => {
             borderRadius: SIZES.font,
             backgroundColor: COLORS.gray,
             flexDirection: "row",
-            alignContent: "center",
+            alignItems: "center",
             paddingHorizontal: SIZES.font,
             paddingVertical: SIZES.small - 2,
           }}
@@ -77,16 +82,12 @@ const HomeHeader = () => {
           <Image
             source={assets.search}
             resizeMode="contain"
-            style={{
-              width: 20,
-              height: 20,
-              marginRight: SIZES.base,
-            }}
+            style={{ width: 20, height: 20, marginRight: SIZES.base }}
           />
           <TextInput
-            placeholder="Search"
+            placeholder="Search NFTs"
             style={{ flex: 1 }}
-            onChangeText={() => {}}
+            onChangeText={onSearch}
           />
         </View>
       </View>
