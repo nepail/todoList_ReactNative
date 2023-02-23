@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -17,57 +17,63 @@ import {
   DetailsBid,
 } from "../components";
 
-const DetailsHeader = ({data}) => (
-  <View style={{width: '100%', height: 373}}>
-    <Image 
+const DetailsHeader = ({ data, navigation }) => (
+  <View style={{ width: "100%", height: 373 }}>
+    <Image
       source={data.image}
       resizeMode="cover"
-      style={{width: '100%', height: '100%'}}
+      style={{ width: "100%", height: "100%" }}
+    />
 
+    <CircleButton
+      imgUrl={assets.left}
+      handlePress={() => navigation.goBack()}
     />
   </View>
-)
+);
 
-const Details = ({route, navigation}) => {
-  const {data} = route.params;
+const Details = ({ route, navigation }) => {
+  const { data } = route.params;
 
   return (
-    <SafeAreaView style={{flex:1}}>
-      <FocusedStatusBar 
+    <SafeAreaView style={{ flex: 1 }}>
+      <FocusedStatusBar
         barStyle="dark-content"
         backgroundColor="transparent"
         translucent={true}
       />
 
-      <View style={{
-        width: '100%',
-        position: 'absolute',
-        bottom: 0,
-        paddingVertical: SIZES.font,
-        justifyContent: 'center',
-        alignContent: 'center',
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        zIndex: 1,
-      }}>
-        <RectButton minWidth={170} fontSize={SIZES.large} {...SHADOWS.dark}/>
+      <View
+        style={{
+          width: "100%",
+          position: "absolute",
+          bottom: 0,
+          paddingVertical: SIZES.font,
+          justifyContent: "center",
+          alignContent: "center",
+          backgroundColor: "rgba(255,255,255,0.5)",
+          zIndex: 1,
+        }}
+      >
+        <RectButton minWidth={170} fontSize={SIZES.large} {...SHADOWS.dark} />
       </View>
 
-      <FlatList 
+      <FlatList
         data={data.bids}
-        renderItem={({item}) => <DetailsBid bid={item} />}
-        keyExtractor={(item => item.id)}
+        renderItem={({ item }) => <DetailsBid bid={item} />}
+        keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingBottom: SIZES.extraLarge * 3,
         }}
-        ListHeaderComponent={()=>(
+        ListHeaderComponent={() => (
           <React.Fragment>
-            <DetailsHeader data={data} navigation={navigation}/>
+            <DetailsHeader data={data} navigation={navigation} />
           </React.Fragment>
         )}
       />
     </SafeAreaView>
-  )
+  );
 };
 
 export default Details;
