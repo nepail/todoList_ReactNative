@@ -56,6 +56,7 @@ const Details = ({ route, navigation }) => {
           position: "absolute",
           bottom: 0,
           paddingVertical: SIZES.font,
+          flexDirection: "row",
           justifyContent: "center",
           alignContent: "center",
           backgroundColor: "rgba(255,255,255,0.5)",

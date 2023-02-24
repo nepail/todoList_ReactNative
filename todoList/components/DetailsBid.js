@@ -4,14 +4,16 @@ import { COLORS, SIZES, FONTS } from "../constants";
 
 const DetailsBid = ({ bid }) => {
   return (
-    <View style={{
-      width: "100%",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignContent: "center",
-      marginVertical: SIZES.base,
-      paddingHorizontal: SIZES.base
-    }}>
+    <View
+      style={{
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignContent: "center",
+        marginVertical: SIZES.base,
+        paddingHorizontal: SIZES.base * 2,
+      }}
+    >
       <Image
         source={bid.image}
         resizeMod="contain"
@@ -44,7 +46,6 @@ const DetailsBid = ({ bid }) => {
       </View>
 
       <EthPrice price={bid.price} />
-      
     </View>
   );
 };
